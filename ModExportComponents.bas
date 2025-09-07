@@ -13,17 +13,13 @@ Sub ExportComponentsMain()
     Dim Ext As String
     Select Case Component.Type
     Case VBIDE.vbext_ct_StdModule
-      'Debug.Print "[STDMODULE] " & Component.Name
       Ext = ".bas"
     Case VBIDE.vbext_ct_ClassModule
-      'Debug.Print "[CLASSMODULE] " & Component.Name
       Ext = ".cls"
     Case VBIDE.vbext_ct_Document
-      'Debug.Print "[DOCUMENT] " & Component.Name
       Ext = ".cls"
     Case VBIDE.vbext_ct_MSForm
-      'Debug.Print "[MSFORM] " & Component.Name
-      Ext = ".cls"
+      Ext = ".frm"
     Case Else
       Debug.Print "[INFO] Could not determine extension for component " & Component.Name
     End Select
