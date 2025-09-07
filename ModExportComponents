@@ -9,8 +9,7 @@ Sub ExportComponentsMain()
   
   Dim Component As VBComponent
   For Each Component In ThisProject.VBComponents
-    'Debug.Print Component.Name, TypeName(Component)
-    
+        
     On Error Resume Next
     Component.Export "crud_generator_components/" & Component.Name
     

@@ -1,0 +1,47 @@
+VERSION 5.00
+Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} FrmTestGlobalControl 
+   Caption         =   "Test Global Control"
+   ClientHeight    =   5835
+   ClientLeft      =   45
+   ClientTop       =   390
+   ClientWidth     =   4740
+   OleObjectBlob   =   "FrmTestGlobalControl.frx":0000
+   StartUpPosition =   1  'CenterOwner
+End
+Attribute VB_Name = "FrmTestGlobalControl"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+'Dim WithEvents GlCtrl As GlobalControl
+'Dim WithEvents GlFrm As GlobalControl
+Dim WithEvents GlCtrlMgr As GlobalControlManager
+Attribute GlCtrlMgr.VB_VarHelpID = -1
+
+Private Sub GlCtrlMgr_GlobalMouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single, ByVal Src As String)
+  LblDebug.Caption = "[" & Src & "] " & X & ", " & Y
+End Sub
+
+'Private Sub GlCtrl_GlMouseMove()
+'  'LblDebug.Caption = GlCtrl.GlX
+'End Sub
+
+Private Sub UserForm_Initialize()
+  
+  ''' TODO: Automatically register controls by passing in form
+  
+  
+  Set GlCtrlMgr = New GlobalControlManager
+  GlCtrlMgr.GlManagerInit Me
+  
+  
+'  Set GlCtrl = New GlobalControl
+'  Set GlCtrl.GlLabel = Me.Label3
+'
+'  Set GlFrm = New GlobalControl
+'  Set GlFrm.GlUserForm = Me
+  
+  
+End Sub

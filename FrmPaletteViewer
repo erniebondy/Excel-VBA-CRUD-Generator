@@ -25,6 +25,19 @@ Dim DY As Single
 Dim PX As Single
 Dim PY As Single
 
+Private Sub CommandButton1_MouseDown(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+  MouseDown = True
+  'CommandButton1.BackColor = ColorTextBackground
+End Sub
+
+Private Sub CommandButton1_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+  If Not MouseDown Then CommandButton1.BackColor = PaletteColorAlmond
+End Sub
+
+Private Sub CommandButton1_MouseUp(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+  MouseDown = False
+End Sub
+
 Private Sub Label2_MouseDown(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
   MouseDown = True
   Dim I As Integer
@@ -144,6 +157,7 @@ End Sub
 Private Sub UserForm_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
   'Label1.Picture = LoadPicture("C:\users\ernie\onedrive\documents\programming\vba\button_assets\button_default.jpg")
   Label1.BackColor = SystemColorConstants.vbButtonFace
+  CommandButton1.BackColor = ColorTextBackground
   MouseDown = False
 End Sub
 
