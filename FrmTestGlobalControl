@@ -15,8 +15,6 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
-'Dim WithEvents GlCtrl As GlobalControl
-'Dim WithEvents GlFrm As GlobalControl
 Dim WithEvents GlCtrlMgr As GlobalControlManager
 Attribute GlCtrlMgr.VB_VarHelpID = -1
 
@@ -24,24 +22,9 @@ Private Sub GlCtrlMgr_GlobalMouseMove(ByVal Button As Integer, ByVal Shift As In
   LblDebug.Caption = "[" & Src & "] " & X & ", " & Y
 End Sub
 
-'Private Sub GlCtrl_GlMouseMove()
-'  'LblDebug.Caption = GlCtrl.GlX
-'End Sub
-
 Private Sub UserForm_Initialize()
-  
-  ''' TODO: Automatically register controls by passing in form
-  
   
   Set GlCtrlMgr = New GlobalControlManager
   GlCtrlMgr.GlManagerInit Me
-  
-  
-'  Set GlCtrl = New GlobalControl
-'  Set GlCtrl.GlLabel = Me.Label3
-'
-'  Set GlFrm = New GlobalControl
-'  Set GlFrm.GlUserForm = Me
-  
   
 End Sub

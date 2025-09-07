@@ -9,7 +9,7 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
-Public PName As String
+Public pName As String
 
 Sub SayHello()
   MsgBox "Hello, how are you?"
