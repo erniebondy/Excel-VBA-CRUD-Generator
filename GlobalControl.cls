@@ -32,7 +32,7 @@ Attribute pGlMultiPage.VB_VarHelpID = -1
 Public GlManager As GlobalControlManager
 Public InnerControl As MSForms.Control
 
-Public Event GlControlMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single, ByVal Src As String)
+Public Event GlControlMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal Y As Single, ByVal Src As String)
 
 Sub Init(GlManager As GlobalControlManager, InnerControl As MSForms.Control)
   Set Me.GlManager = GlManager
@@ -91,38 +91,38 @@ End Function
 
 ''' Not too sure how to reduce the repetition here, if it's even possible
 ''' FIX: Controls in a Frame of MultiPage zero out to their 'owner' or 'parent'
-Private Sub pGlButton_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
-  Call GlMouseMoveHost(Button, Shift, X, Y)
+Private Sub pGlButton_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal Y As Single)
+  Call GlMouseMoveHost(Button, Shift, x, Y)
 End Sub
 
-Private Sub pGlComboBox_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
-  Call GlMouseMoveHost(Button, Shift, X, Y)
+Private Sub pGlComboBox_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal Y As Single)
+  Call GlMouseMoveHost(Button, Shift, x, Y)
 End Sub
 
-Private Sub pGlFrame_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
-  Call GlMouseMoveHost(Button, Shift, X, Y)
+Private Sub pGlFrame_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal Y As Single)
+  Call GlMouseMoveHost(Button, Shift, x, Y)
 End Sub
 
-Private Sub pGlLabel_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
-  Call GlMouseMoveHost(Button, Shift, X, Y)
+Private Sub pGlLabel_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal Y As Single)
+  Call GlMouseMoveHost(Button, Shift, x, Y)
 End Sub
 
-Private Sub pGlListBox_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
-  Call GlMouseMoveHost(Button, Shift, X, Y)
+Private Sub pGlListBox_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal Y As Single)
+  Call GlMouseMoveHost(Button, Shift, x, Y)
 End Sub
 
-Private Sub pGlMultiPage_MouseMove(ByVal Index As Long, ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
-  Call GlMouseMoveHost(Button, Shift, X, Y)
+Private Sub pGlMultiPage_MouseMove(ByVal Index As Long, ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal Y As Single)
+  Call GlMouseMoveHost(Button, Shift, x, Y)
 End Sub
 
-Private Sub pGlTextBox_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
-  Call GlMouseMoveHost(Button, Shift, X, Y)
+Private Sub pGlTextBox_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal Y As Single)
+  Call GlMouseMoveHost(Button, Shift, x, Y)
 End Sub
 
 ''' Because someone who 'raises' an event is the host?
-Private Sub GlMouseMoveHost(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+Private Sub GlMouseMoveHost(ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal Y As Single)
   Set GlManager.GlActiveControl = Me
   Dim Offsets As GlobalOffsetReturnType
   Offsets = GetGlobalOffset
-  RaiseEvent GlControlMove(Button, Shift, InnerControl.Left + Offsets.XOffset + X, InnerControl.Top + Offsets.YOffset + Y, InnerControl.Name)
+  RaiseEvent GlControlMove(Button, Shift, InnerControl.Left + Offsets.XOffset + x, InnerControl.Top + Offsets.YOffset + Y, InnerControl.Name)
 End Sub

@@ -74,3 +74,7 @@ Function StrIntr(str As String, ParamArray params()) As String
   Loop
 
 End Function
+
+Sub Inc(ByRef Value, Optional Amount = 1)
+  Value = Value + Amount
+End Sub
