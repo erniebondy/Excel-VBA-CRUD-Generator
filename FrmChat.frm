@@ -15,8 +15,6 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
-
-
 Private Sub BtnSend_Click()
   Call SendMessage(TxtName.Value, TxtMessage.Value)
 End Sub
@@ -33,7 +31,8 @@ Private Sub UserForm_Initialize()
 End Sub
 
 Private Sub SendMessage(Name As String, Message As String)
-
+  ''' Using a Continue label and GoTo acts just like the continue
+  ''' in other languages like C# or... VB.NET
   Dim ChatForm
   For Each ChatForm In VBA.UserForms
     If Not TypeOf ChatForm Is FrmChat Then GoTo Continue ''' Holy statement Batman
@@ -42,14 +41,6 @@ Private Sub SendMessage(Name As String, Message As String)
     Set Messages = ChatForm.Controls("LboMessages")
     Messages.AddItem Name
     Messages.List(Messages.ListCount - 1, 1) = Message
-    
-    'ChatForm.Controls("TxtMessage").Value = vbNullString
-    'ChatForm.Controls("TxtMessage").SetFocus
-    
-'    LboMessages.AddItem Name
-'    LboMessages.List(LboMessages.ListCount - 1, 1) = Message
-'    TxtMessage.Value = vbNullString
-'    TxtMessage.SetFocus
 Continue:
   Next
   

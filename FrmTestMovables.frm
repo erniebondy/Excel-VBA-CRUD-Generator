@@ -25,16 +25,16 @@ Dim DY As Single
 Dim PX As Single
 Dim PY As Single
 
-Private Sub Label2_MouseDown(ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal Y As Single)
+Private Sub Label2_MouseDown(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
   MouseDown = True
   Dim I As Integer
   For I = LBound(Movables) To UBound(Movables)
-    If Label2.Left + x >= Movables(I).Left And Label2.Left + x <= Movables(I).Left + Movables(I).Width And _
+    If Label2.Left + X >= Movables(I).Left And Label2.Left + X <= Movables(I).Left + Movables(I).Width And _
        Label2.Top + Y >= Movables(I).Top And Label2.Top + Y <= Movables(I).Top + Movables(I).Height Then
       Set SelectedLbl = Movables(I)
-      DX = (Label2.Left + x) - SelectedLbl.Left
+      DX = (Label2.Left + X) - SelectedLbl.Left
       DY = (Label2.Top + Y) - SelectedLbl.Top
-      PX = x
+      PX = X
       PY = Y
       Exit For
     End If
@@ -42,27 +42,27 @@ Private Sub Label2_MouseDown(ByVal Button As Integer, ByVal Shift As Integer, By
   
 End Sub
 
-Private Sub Label2_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal Y As Single)
+Private Sub Label2_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
   Label3.Caption = Label3.Left
   Label4.Caption = Label4.Left
   Label5.Caption = Label5.Left
   
   
-  Label6.Caption = "LX " & x & vbNewLine & "FX " & Label2.Left + x
+  Label6.Caption = "LX " & X & vbNewLine & "FX " & Label2.Left + X
   
   If SelectedLbl Is Nothing Then Exit Sub
   
   Label6.Caption = Label6.Caption & vbNewLine & "SL.Left " & SelectedLbl.Left
   
   Dim NX As Single
-  NX = Label2.Left + x - DX
+  NX = Label2.Left + X - DX
   
-  If SelectedLbl.Left - (PX - x) < Label2.Left Then
+  If SelectedLbl.Left - (PX - X) < Label2.Left Then
     NX = Label2.Left
-  ElseIf SelectedLbl.Left + SelectedLbl.Width - (PX - x) > Label2.Left + Label2.Width Then
+  ElseIf SelectedLbl.Left + SelectedLbl.Width - (PX - X) > Label2.Left + Label2.Width Then
     NX = Label2.Left + Label2.Width - SelectedLbl.Width
   Else
-    PX = x
+    PX = X
   End If
   
   
@@ -82,7 +82,7 @@ Private Sub Label2_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, By
   
 End Sub
 
-Private Sub Label2_MouseUp(ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal Y As Single)
+Private Sub Label2_MouseUp(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
   MouseDown = False
   Set SelectedLbl = Nothing
 End Sub
@@ -101,7 +101,7 @@ Private Sub UserForm_Initialize()
   
 End Sub
 
-Private Sub UserForm_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal Y As Single)
+Private Sub UserForm_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
   MouseDown = False
 End Sub
 

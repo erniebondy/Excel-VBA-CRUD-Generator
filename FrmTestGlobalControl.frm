@@ -18,8 +18,8 @@ Option Explicit
 Dim WithEvents GlCtrlMgr As GlobalControlManager
 Attribute GlCtrlMgr.VB_VarHelpID = -1
 
-Private Sub GlCtrlMgr_GlobalMouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal Y As Single, ByVal Src As String)
-  LblDebug.Caption = "[" & Src & "] " & x & ", " & Y
+Private Sub GlCtrlMgr_GlobalMouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single, ByVal Src As String)
+  LblDebug.Caption = "[" & Src & "] " & X & ", " & Y
 End Sub
 
 Private Sub UserForm_Initialize()

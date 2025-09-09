@@ -18,7 +18,7 @@ Attribute GlForm.VB_VarHelpID = -1
 Dim GlControls As Scripting.Dictionary
 Public WithEvents GlActiveControl As GlobalControl
 
-Public Event GlobalMouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal Y As Single, ByVal Src As String)
+Public Event GlobalMouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single, ByVal Src As String)
 
 ''' Explicitly using type 'MSForms.UserForm' results in the UserForm
 ''' variable to hold some data - like the forms' controls.
@@ -47,10 +47,10 @@ Sub GlManagerInit(UserForm As Object)
   
 End Sub
 
-Private Sub GlActiveControl_GlControlMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal Y As Single, ByVal Src As String)
-  RaiseEvent GlobalMouseMove(Button, Shift, x, Y, GlActiveControl.InnerControl.Name)
+Private Sub GlActiveControl_GlControlMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single, ByVal Src As String)
+  RaiseEvent GlobalMouseMove(Button, Shift, X, Y, GlActiveControl.InnerControl.Name)
 End Sub
 
-Private Sub GlForm_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal Y As Single)
- RaiseEvent GlobalMouseMove(Button, Shift, x, Y, GlFormObj.Name)
+Private Sub GlForm_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+ RaiseEvent GlobalMouseMove(Button, Shift, X, Y, GlFormObj.Name)
 End Sub
